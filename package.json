@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test": "vue-cli-service test:unit",
+    "test:dev": "vue-cli-service test:unit --watchAll",
     "lint": "vue-cli-service lint",
     "start": "npm run serve"
   },
@@ -28,9 +29,11 @@
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^6.2.2",
+    "jest-environment-jsdom": "^27.2.2",
+    "jest-environment-jsdom-global": "^3.0.0",
+    "node-sass": "^4.14.1",
     "prettier": "^2.2.1",
     "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11",
-    "node-sass": "^4.14.1"
+    "vue-template-compiler": "^2.6.11"
   }
 }
