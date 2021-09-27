@@ -5,8 +5,10 @@ import store from "./store";
 
 Vue.config.productionTip = false;
 
+import "@/css/main.scss";
+
 new Vue({
   router,
   store,
   render: (h) => h(App),
-}).$mount("#app");
+}).$mount("#pokemon_app");
