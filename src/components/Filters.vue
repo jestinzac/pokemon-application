@@ -57,5 +57,27 @@
 <script>
 export default {
   name: "Filters",
+  data() {
+    return {
+      filterByName: "",
+      filterByAbilities: "",
+      sortBy: "name",
+      sortOrderBy: "asc",
+    };
+  },
+  methods: {
+    onChangeEvent(e) {
+      this.setPerPageCount(e.target.value);
+      this.getPaginatedPokemonData(true);
+    },
+    clearInput(type) {
+      if (type === "a") {
+        this.filterByAbilities = "";
+      }
+      if (type === "n") {
+        this.filterByName = "";
+      }
+    },
+  },
 };
 </script>
