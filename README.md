@@ -1,4 +1,5 @@
 # pokemon-application
+Sample code application written in VueJS. I have only written few unit test cases which covers few of the scenarios.
 
 ## Project setup
 ```
@@ -7,7 +8,7 @@ npm install
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+npm start
 ```
 
 ### Compiles and minifies for production
@@ -17,7 +18,8 @@ npm run build
 
 ### Run your unit tests
 ```
-npm run test:unit
+npm test
+npm run test:dev (for live re-load of tests)
 ```
 
 ### Lints and fixes files
