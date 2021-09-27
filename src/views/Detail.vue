@@ -1,6 +1,8 @@
 <template>
   <section class="container details">
-    <a href="#" @click.prevent="$router.go(-1)">&#10094;&nbsp;Back</a>
+    <a href="#" @click.prevent="$router.go(-1)" class="button-secondary">
+      &#10094;&nbsp;Back
+    </a>
     <div class="details-container" v-if="detailPokemonData">
       <img
         :src="

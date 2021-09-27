@@ -8,6 +8,7 @@
         tabindex="1"
         aria-label="Filter by pokemon name"
         v-model="filterByName"
+        @input="emitData"
       />
       <span
         class="close"
@@ -24,6 +25,7 @@
         tabindex="2"
         aria-label="Filter by pokemon abilities"
         v-model="filterByAbilities"
+        @input="emitData"
       />
       <span
         class="close"
@@ -34,7 +36,12 @@
     </span>
     <div>
       Sort by:
-      <select tabindex="3" aria-label="Sort results by" v-model="sortBy">
+      <select
+        tabindex="3"
+        aria-label="Sort results by"
+        v-model="sortBy"
+        @change="emitData"
+      >
         <option value="name">Name</option>
         <option value="height">Height</option>
         <option value="weight">Weight</option>
@@ -46,6 +53,7 @@
         tabindex="3"
         aria-label="Sort results order by"
         v-model="sortOrderBy"
+        @change="emitData"
       >
         <option value="asc">Ascending</option>
         <option value="desc">Decending</option>
@@ -66,9 +74,15 @@ export default {
     };
   },
   methods: {
-    onChangeEvent(e) {
-      this.setPerPageCount(e.target.value);
-      this.getPaginatedPokemonData(true);
+    emitData() {
+      let _fs = {
+        isFilterEnabled: Boolean(this.filterByName || this.filterByAbilities),
+        filterByName: this.filterByName,
+        filterByAbilities: this.filterByAbilities,
+        sortBy: this.sortBy,
+        sortOrderBy: this.sortOrderBy,
+      };
+      this.$emit("f_s", _fs);
     },
     clearInput(type) {
       if (type === "a") {
@@ -77,6 +91,7 @@ export default {
       if (type === "n") {
         this.filterByName = "";
       }
+      this.emitData();
     },
   },
 };

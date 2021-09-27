@@ -105,6 +105,20 @@ footer {
     }
   }
 
+  .button {
+    &-secondary {
+      border: 1px solid #d8d8d8;
+      padding: 10px;
+      border-radius: 5px;
+      text-decoration: none;
+      color: rgb(15, 15, 15);
+      width: auto;
+      &:hover {
+        background-color: #eeeeee;
+      }
+    }
+  }
+
   .width-xs {
     width: 8%;
     @media screen and (max-width: 700px) {

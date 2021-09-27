@@ -7,14 +7,14 @@
     />
     <div class="card-list__body">
       <h2 class="title font--capitalize" v-text="pokemon.name" />
-      <span>
+      <p>
         Height:
         <span class="font--bold">{{ pokemon.details.height }} m</span>
-      </span>
-      <span>
+      </p>
+      <p>
         Weight:
         <span class="font--bold">{{ pokemon.details.weight }} kg</span>
-      </span>
+      </p>
       <p>
         Abilities:
         <template

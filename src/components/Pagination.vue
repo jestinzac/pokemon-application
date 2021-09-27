@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapActions, mapMutations, mapState } from "vuex";
 import { constants } from "@/lib/CONSTANTS.js";
 
 export default {
@@ -51,6 +51,18 @@ export default {
     ...mapState({
       userAction: (state) => state.userAction,
     }),
+  },
+  methods: {
+    ...mapActions(["getPaginatedPokemonData"]),
+    ...mapMutations(["setPerPageCount", "setPageAndOffset"]),
+    onChangeEvent(e) {
+      this.setPerPageCount(e.target.value);
+      this.getPaginatedPokemonData(true);
+    },
+    paginate(type) {
+      this.setPageAndOffset(type);
+      this.getPaginatedPokemonData(true);
+    },
   },
 };
 </script>
