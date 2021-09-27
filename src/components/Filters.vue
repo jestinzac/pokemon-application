@@ -87,7 +87,6 @@ export default {
   methods: {
     emitData() {
       let _fs = {
-        isFilterEnabled: Boolean(this.filterByName || this.filterByAbilities),
         filterByName: this.filterByName,
         filterByAbilities: this.filterByAbilities,
         sortBy: this.sortBy,

@@ -1,5 +1,5 @@
 <template>
-  <li @click.prevent="goToDetail(pokemon.id)">
+  <li @click="goToDetail(pokemon.id)" @keyup.enter="goToDetail(pokemon.id)">
     <img
       :src="`${pokemon.details.sprites.other['official-artwork'].front_default}`"
       :alt="pokemon.name"

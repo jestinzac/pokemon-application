@@ -1,8 +1,8 @@
 <template>
   <section class="container">
     <div class="wrapper">
-      <Filters @f_s="filterSortData" />
-      <Card :pokemonData="pokemonDataResults" />
+      <filters @f_s="filterSortData" />
+      <card :pokemonData="pokemonDataResults" :loading="isDataReady" />
     </div>
   </section>
 </template>
@@ -22,7 +22,6 @@ export default {
   data() {
     return {
       filter: {
-        isFilterEnabled: false,
         filterByName: "",
         filterByAbilities: "",
         sortBy: "name",
@@ -40,6 +39,9 @@ export default {
       isLoading: (state) => state.isLoading,
       userAction: (state) => state.userAction,
     }),
+    isDataReady() {
+      return this.isLoading && this.pokemonDataResults.length == 0;
+    },
     pokemonDataResults() {
       let filteredDataSet;
       //Filter by Name

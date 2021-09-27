@@ -5,6 +5,10 @@ import { isURL } from "@/lib/utilities.js";
 
 Vue.use(Vuex);
 
+// function sleep(ms) {
+//   return new Promise((resolve) => setTimeout(resolve, ms));
+// }
+
 export default new Vuex.Store({
   namespaced: true,
   state: {
@@ -40,10 +44,10 @@ export default new Vuex.Store({
         ? "hasError" in param.error
           ? param.error
           : {
-              hasError: true,
-              status: param.error.status,
-              message: param.error.message,
-            }
+            hasError: true,
+            status: param.error.status,
+            message: param.error.message,
+          }
         : null;
     },
     setPerPageCount(state, value) {
@@ -82,6 +86,7 @@ export default new Vuex.Store({
       commit("setLoader", true);
       try {
         if (state.data.length === 0) {
+          //await sleep(5000); //checking loader placeholder
           const response = await fetch(
             `${constants.API.pokemon}?limit=${state.userAction.pagination.perPageCount}&offset=${state.userAction.pagination.offset}`
           );
