@@ -1,5 +1,8 @@
 # pokemon-application
-Sample code application written in VueJS. I have only written few unit test cases which covers few of the scenarios.
+Sample code application written in VueJS. Written unit test cases.
+
+TODO:
+Unit test for few components pending!
 
 ## Project setup
 ```
