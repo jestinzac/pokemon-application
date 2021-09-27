@@ -1,7 +1,7 @@
 <template>
   <div id="pokemon-app">
     <header>
-      <h1>Pokemon Application</h1>
+      <h1 class="title">Pokemon Application</h1>
     </header>
     <router-view />
     <footer>

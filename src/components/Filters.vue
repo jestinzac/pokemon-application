@@ -67,11 +67,22 @@ export default {
   name: "Filters",
   data() {
     return {
-      filterByName: "",
-      filterByAbilities: "",
-      sortBy: "name",
-      sortOrderBy: "asc",
+      filterByName: this.$route.query.name || "",
+      filterByAbilities: this.$route.query.abilities || "",
+      sortBy: this.$route.query.sort || "name",
+      sortOrderBy: this.$route.query.order || "asc",
+      onLoadEmitInvoked: false, //handling navigation duplication hack flag
     };
+  },
+  created() {
+    if (
+      this.$route.query &&
+      Object.keys(this.$route.query).length > 1 &&
+      Object.getPrototypeOf(this.$route.query) === Object.prototype
+    ) {
+      this.onLoadEmitInvoked = true;
+      this.emitData();
+    }
   },
   methods: {
     emitData() {
@@ -82,6 +93,8 @@ export default {
         sortBy: this.sortBy,
         sortOrderBy: this.sortOrderBy,
       };
+      if (!this.onLoadEmitInvoked) this.generateQueryLink();
+      if (this.onLoadEmitInvoked) this.onLoadEmitInvoked = false;
       this.$emit("f_s", _fs);
     },
     clearInput(type) {
@@ -92,6 +105,17 @@ export default {
         this.filterByName = "";
       }
       this.emitData();
+    },
+    generateQueryLink() {
+      this.$router.replace({
+        path: "pokemon-landing",
+        query: {
+          name: this.filterByName,
+          abilities: this.filterByAbilities,
+          sort: this.sortBy,
+          order: this.sortOrderBy,
+        },
+      });
     },
   },
 };

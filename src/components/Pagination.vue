@@ -4,13 +4,13 @@
       class="count width-xs"
       tabindex="4"
       aria-label="Results per page option"
+      v-model="getPageCount"
       @change="onChangeEvent($event)"
     >
       <option
-        v-for="(number, index) in perPageCounts"
+        v-for="(number, index) in perPageCountList"
         :key="index"
         :value="number"
-        :selected="userAction.pagination.perPageCount === number"
       >
         {{ number }}
       </option>
@@ -44,19 +44,28 @@ export default {
   name: "Pagination",
   data() {
     return {
-      perPageCounts: constants.perPageCount,
+      perPageCount: "",
+      perPageCountList: constants.perPageCount,
     };
   },
   computed: {
     ...mapState({
       userAction: (state) => state.userAction,
     }),
+    getPageCount: {
+      get() {
+        return this.userAction.pagination.perPageCount;
+      },
+      set(newValue) {
+        this.perPageCount = newValue;
+      },
+    },
   },
   methods: {
     ...mapActions(["getPaginatedPokemonData"]),
     ...mapMutations(["setPerPageCount", "setPageAndOffset"]),
     onChangeEvent(e) {
-      this.setPerPageCount(e.target.value);
+      this.setPerPageCount(parseInt(e.target.value));
       this.getPaginatedPokemonData(true);
     },
     paginate(type) {
