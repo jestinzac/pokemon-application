@@ -1,5 +1,7 @@
 # pokemon-application
-Sample code application written in VueJS. Written unit test cases for respective files.
+Pokemon application written in VueJS which lists all the Pokemon in the landing page. Have filters, sort option and pagination for the results. As user clicks each card they will be directed to respective detail page. Filters and sort options are preserved even if browser is refreshed. Written unit test cases for respective files.
+
+Using consumption-only API provided by [PokeAPI](https://pokeapi.co/docs/v2#pokemon-section) for the data.
 
 Attaching landing page screenshot for quick look
 ![image](https://user-images.githubusercontent.com/4215450/135001815-3a2afd1f-ca1e-4c2b-87e3-241ce421e9db.png)
