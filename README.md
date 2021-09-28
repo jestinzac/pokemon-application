@@ -1,8 +1,9 @@
 # pokemon-application
-Sample code application written in VueJS. Written unit test cases.
+Sample code application written in VueJS. Written unit test cases for respective files.
 
-TODO:
-Unit test for few components pending!
+Attaching landing page screenshot for quick look
+![image](https://user-images.githubusercontent.com/4215450/135001815-3a2afd1f-ca1e-4c2b-87e3-241ce421e9db.png)
+
 
 ## Project setup
 ```
@@ -29,6 +30,9 @@ npm run test:dev (for live re-load of tests)
 ```
 npm run lint
 ```
+
+### TODO:
+Unit test for few components are pending!
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
