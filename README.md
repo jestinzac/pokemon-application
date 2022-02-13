@@ -3,8 +3,7 @@ Pokemon application written in VueJS which lists all the Pokemon in the landing 
 
 Using consumption-only API provided by [PokeAPI](https://pokeapi.co/docs/v2#pokemon-section) for the data.
 
-Attaching landing page screenshot for quick look
-![image](https://user-images.githubusercontent.com/4215450/135001815-3a2afd1f-ca1e-4c2b-87e3-241ce421e9db.png)
+Checkout the [link](https://jestinzac.github.io/pokemon-application/pokemon)!
 
 
 ## Project setup
